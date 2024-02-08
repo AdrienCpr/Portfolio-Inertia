@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.project-item {
+  transition: transform 0.3s ease-in-out;
+}
+
+.project-item:hover {
+  transform: scale(1.1); /* Ajustez le facteur de zoom selon vos préférences */
+}

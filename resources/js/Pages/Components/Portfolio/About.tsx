@@ -8,7 +8,7 @@ const About = () => {
                     <img
                         alt="Profile"
                         className="aspect-content rounded-full object-cover object-center sm:w-full md:w-1/2 lg:order-last"
-                        src="/res/adrien.jpg"
+                        src="/storage/adrien.jpg"
                         loading="lazy"
                         style={{ borderRadius: "50%", height: "500px", width: "500px" }}
                     />

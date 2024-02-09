@@ -7,7 +7,7 @@ import {DarkModeSwitch} from "react-toggle-dark-mode";
 import {Link as ScrollLink} from 'react-scroll';
 
 const Header = () => {
-    const [darkMode, setDarkMode] = useState(() => {
+    const [darkMode, setDarkMode] = useState<boolean>(() => {
         const storedDarkMode = localStorage.getItem('darkMode');
         return storedDarkMode ? JSON.parse(storedDarkMode) : false;
     });
@@ -15,7 +15,7 @@ const Header = () => {
     const [isMenuOpen, setMenuOpen] = useState(false);
 
     const toggleDarkMode = () => {
-        setDarkMode((prevMode: any) => {
+        setDarkMode((prevMode: boolean) => {
             const newMode = !prevMode;
             localStorage.setItem('darkMode', JSON.stringify(newMode));
             return newMode;
@@ -31,12 +31,13 @@ const Header = () => {
     }, [darkMode]);
 
     return (
-        <header className={`px-4 lg:px-6 h-16 flex items-center
-            bg-lightSecondary
-            dark:bg-darkSecondary`}>
+       <header className={`px-4 lg:px-6 h-16 flex items-center
+    bg-lightSecondary
+    dark:bg-darkSecondary`}
+  >
             <Link className={`flex items-center justify-center
                             text-lightQuaternary
-                            dark:text-darkQuaternary`} href="login">
+                            dark:text-darkQuaternary`} href="admin/login">
                 <CiUser className="h-6 w-6"/>
                 <span className="sr-only">Portfolio</span>
             </Link>

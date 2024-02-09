@@ -23,38 +23,9 @@ Route::get('/csrf-token', [\App\Http\Controllers\RefreshCsrfTokenController::cla
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'REACT_APP_SITE_KEY' => env('REACT_APP_SITE_KEY'),
+        'REACT_APP_SITE_KEY' => env('REACT_APP_SITE_KEY')
     ]);
 })->name('welcome');
 
 Route::post('/send', [Controller::class, 'send'])->name('send');
 
-
-Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard-index');
-
-    Route::post('/dashboard', [DashboardController::class, 'create'])->name('dashboard-create');
-
-    Route::get('/dashboard/{id}', [DashboardController::class, 'redirect'])->name('dashboard-redirect');
-
-    Route::get('/my-success', [SuccessController::class, 'showMySuccess'])->name('success-user-show');
-
-});
-
-Route::middleware(['auth', 'admin'])->group(function () {
-
-    Route::get('/success', [SuccessController::class, 'index'])->name('success-index');
-
-    Route::post('/success', [SuccessController::class, 'create'])->name('success-create');
-});
-
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-require __DIR__ . '/auth.php';

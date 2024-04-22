@@ -49,4 +49,11 @@ html.dark ::-webkit-scrollbar-track {
     color: #1f2937 !important;
 }
 
+.dark .slick-prev:before, .dark .slick-next:before {
+    color: #ECB365 !important;
+}
+
+.gJAGSz.active {
+    background: transparent !important;
+}
 

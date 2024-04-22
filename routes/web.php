@@ -23,6 +23,8 @@ Route::get('/csrf-token', [\App\Http\Controllers\RefreshCsrfTokenController::cla
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
+        'projects' => \App\Models\Project::query()->get(),
+        'skills' => \App\Models\Skill::query()->get(),
         'REACT_APP_SITE_KEY' => env('REACT_APP_SITE_KEY')
     ]);
 })->name('welcome');

@@ -5,8 +5,9 @@ import Projects from "@/Pages/Components/Portfolio/Projects";
 import Contact from "@/Pages/Components/Portfolio/Contact";
 import Footer from "@/Pages/Components/Footer";
 import Header from "@/Pages/Components/Header";
+import Timeline from "@/Pages/Components/Portfolio/Timeline";
 
-export default function Welcome({REACT_APP_SITE_KEY}: { REACT_APP_SITE_KEY: string }) {
+export default function Welcome({REACT_APP_SITE_KEY, projects, skills}: { REACT_APP_SITE_KEY: string, projects: [], skills: [] }) {
     return (
         <div className={`flex flex-col min-h-screen
                         bg-lightPrimary
@@ -21,11 +22,15 @@ export default function Welcome({REACT_APP_SITE_KEY}: { REACT_APP_SITE_KEY: stri
 
                 <section id="skills"
                          className={`w-full py-12 md:py-24 lg:py-32 bg-lightSecondary dark:bg-darkSecondary`}>
-                    <Skills/>
+                    <Skills skills={skills}/>
+                </section>
+
+                <section id="timeline" className="w-full text-center py-12 md:py-24 lg:py-32">
+                    <Timeline/>
                 </section>
 
                 <section id="projects" className="w-full text-center py-12 md:py-24 lg:py-32">
-                    <Projects/>
+                    <Projects projects={projects}/>
                 </section>
 
                 <section id="contact"
